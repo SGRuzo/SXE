@@ -1,11 +1,4 @@
-# Guía de Instalación Manual de WordPress en Ubuntu 24.04
-
-## Análisis del Proceso
-
-Insta
-lación manual de WordPress en un servidor Ubuntu 24.04 utilizando Apache, MySQL y PHP (stack LAMP).
-
-## Comandos Ejecutados y su Propósito
+# Guía de Instalación Manual de WordPress
 
 ### 1. Actualización del Sistema
 ```bash
