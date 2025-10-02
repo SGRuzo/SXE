@@ -88,9 +88,7 @@ sudo -u www-data sed -i 's/username_here/wordpress/' /srv/www/wordpress/wp-confi
 sudo -u www-data sed -i 's/password_here/admin/' /srv/www/wordpress/wp-config.php
 ```
 ![6b.ConfCredencialesBD.png](6b.ConfCredencialesBD.png)
-#### c. Configurar claves de seguridad (SALT)
-**Paso CRÍTICO para la seguridad:**
-
+#### c. Configurar claves de seguridad 
 1. **Eliminar las líneas de claves por defecto** en el archivo `wp-config.php`
 2. **Obtener claves seguras** desde la API de WordPress:
 ```bash
