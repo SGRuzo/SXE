@@ -9,7 +9,7 @@
 * `docker images` lista las imágenes locales; ahí debe aparecer `alpine` en la columna `REPOSITORY`.
 
 ---
-# 2) Crear un contenedor sin ponerle nombre. ¿Está arrancado? Obtener el nombre
+# 2) Crear un contenedor sin ponerle nombre. Obtener el nombre
 
 ![2.CrearContenedorSinNombre.png](img%2F2.CrearContenedorSinNombre.png)
 
@@ -27,3 +27,14 @@
 * `--name dam_alp1` de este modo referenciamos el contenedor por su nombre.
 * Para acceder al contenedor si está ejecutándose se usa el comando `docker exec -it dam_alp1 sh`
 * Si el contenedor está excited primero hay que arrancarlo.
+
+
+
+---
+
+# 4) Comprobar qué IP tiene y si puedes hacer ping a google.com
+![4.IPyPINaGoogle.png](img%2F4.IPyPINaGoogle.png)
+
+
+* `ip a` para comprobar la ip.
+* `ping google.com` funcinó sin fallos por lo que comprobamos que el host tiene conexión a Internet.
