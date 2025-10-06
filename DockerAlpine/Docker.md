@@ -59,3 +59,9 @@
 
 * Con `exit` salimos de la terminal del contenedor.
 * Con `docker ps -a` comprobamos el estado de los contenedores.
+
+---
+
+# 7) ¿Cuánta memoria en disco ocupaste?
+
+* Usando `docker system df` comprobamos cuanto espacio en disco ocupa ahora Docker.
