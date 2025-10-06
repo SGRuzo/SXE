@@ -65,3 +65,11 @@
 # 7) ¿Cuánta memoria en disco ocupaste?
 
 * Usando `docker system df` comprobamos cuanto espacio en disco ocupa ahora Docker.
+
+
+---
+
+# 8) ¿Cuánta RAM ocupan los contenedores? ¿Hay algún comando Docker para saber esto?
+
+*Podemos comprobar la RAM de los contenedores con `docker stats`.
+
