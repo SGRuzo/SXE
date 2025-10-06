@@ -51,3 +51,11 @@
 ![5.PinEntreContenedores.png](img%2F5.PinEntreContenedores.png)
 
 ![5.1.Pin.png](img%2F5.1.Pin.png)
+
+---
+
+# 6) Sal del terminal, ¿qué ocurrió con el contenedor?
+
+
+* Con `exit` salimos de la terminal del contenedor.
+* Con `docker ps -a` comprobamos el estado de los contenedores.
