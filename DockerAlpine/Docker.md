@@ -38,3 +38,16 @@
 
 * `ip a` para comprobar la ip.
 * `ping google.com` funcinó sin fallos por lo que comprobamos que el host tiene conexión a Internet.
+
+
+
+---
+
+# 5) Crear `dam_alp2`. ¿Puedes hacer ping entre contenedores?
+
+1. `docker run -it --name dam_alp2 alpine` crea y ejecuta `dam_alp2`.
+2. Desde dentro vemos la IP con `ip a` que resulta ser `172.17.0.2`.
+3. A continuación hay que hacer el ping a la IP `172.17.0.3` (en la primera captura me faltaba `-c 4` para limitar, está correcto en la segunda captura)
+![5.PinEntreContenedores.png](img%2F5.PinEntreContenedores.png)
+
+![5.1.Pin.png](img%2F5.1.Pin.png)
