@@ -1,6 +1,6 @@
 # Práctica Docker — Alpine 
 
-# 1) Descargar la imagen alpine sin arrancarla y comprobar que está en tu equipo
+## 1) Descargar la imagen alpine sin arrancarla y comprobar que está en tu equipo
 
 ![1.DescargaAlpine.png](img%2F1.DescargaAlpine.png)
 
@@ -9,7 +9,7 @@
 * `docker images` lista las imágenes locales; ahí debe aparecer `alpine` en la columna `REPOSITORY`.
 
 ---
-# 2) Crear un contenedor sin ponerle nombre. Obtener el nombre
+## 2) Crear un contenedor sin ponerle nombre. Obtener el nombre
 
 ![2.CrearContenedorSinNombre.png](img%2F2.CrearContenedorSinNombre.png)
 
@@ -19,7 +19,7 @@
 
 ---
 
-# 3) Crear un contenedor con nombre dam_alp1.
+## 3) Crear un contenedor con nombre dam_alp1.
 
 
 ![3.CrearContenedorConNombre.png](img%2F3.CrearContenedorConNombre.png)
@@ -32,7 +32,7 @@
 
 ---
 
-# 4) Comprobar qué IP tiene y si puedes hacer ping a google.com
+## 4) Comprobar qué IP tiene y si puedes hacer ping a google.com
 ![4.IPyPINaGoogle.png](img%2F4.IPyPINaGoogle.png)
 
 
@@ -43,7 +43,7 @@
 
 ---
 
-# 5) Crear `dam_alp2`. ¿Puedes hacer ping entre contenedores?
+## 5) Crear `dam_alp2`. ¿Puedes hacer ping entre contenedores?
 
 1. `docker run -it --name dam_alp2 alpine` crea y ejecuta `dam_alp2`.
 2. Desde dentro vemos la IP con `ip a` que resulta ser `172.17.0.2`.
@@ -54,22 +54,25 @@
 
 ---
 
-# 6) Sal del terminal, ¿qué ocurrió con el contenedor?
+## 6) Sal del terminal, ¿qué ocurrió con el contenedor?
 
-
+![6.Salir.png](../DockerAlpine/img/6.Salir.png)
 * Con `exit` salimos de la terminal del contenedor.
 * Con `docker ps -a` comprobamos el estado de los contenedores.
+* Podemos comprobar que el contenedor sigue activo.
 
 ---
 
-# 7) ¿Cuánta memoria en disco ocupaste?
-
+## 7) ¿Cuánta memoria en disco ocupaste?
+![7.Memoria.png](../DockerAlpine/img/7.Memoria.png)
 * Usando `docker system df` comprobamos cuanto espacio en disco ocupa ahora Docker.
+* La imagen de alpine ocupa 12.9 MB, mientras que los contenedores (los 3 contenedores) ocupan 20.48kB
 
 
 ---
 
-# 8) ¿Cuánta RAM ocupan los contenedores? ¿Hay algún comando Docker para saber esto?
-
-*Podemos comprobar la RAM de los contenedores con `docker stats`.
+## 8) ¿Cuánta RAM ocupan los contenedores? ¿Hay algún comando Docker para saber esto?
+![8.RAM.png](../DockerAlpine/img/8.RAM.png)
+* Podemos comprobar la RAM de los contenedores con `docker stats`.
+* dam_alp2 usaba 1.9 MiB de RAM
 
