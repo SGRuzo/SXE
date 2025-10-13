@@ -62,3 +62,25 @@
 ![6.1.NuevoContenedorDemostracion.png](img/6.1.NuevoContenedorDemostracion.png)
 
 ---
+
+## 7) Comprueba que los dos servidores 'sirven' la misma página
+
+![7.ComprobarAmbosServidores.png](img/7.ComprobarAmbosServidores.png)
+
+* Accedo a ambos URLs en el navegador:
+    - `http://localhost:8000`
+    - `http://localhost:9080`
+
+
+---
+
+## 8) Realiza modificaciones de la página y comprueba que los dos servidores 'sirven' la misma página
+
+![8.ModificarPagina.png](img/8.ModificarPagina.png)
+
+* Modifico el archivo `index.html` en el último directorio.
+* Actualizo ambos URLs en el navegador:
+    - `http://localhost:8000`
+    - `http://localhost:9080`
+* Compruebo que ambos servidores se han actualizado correctamente.
+![8.1.FuncionanAmbosServidoresConIndexModificado.png](img/8.1.FuncionanAmbosServidoresConIndexModificado.png)
