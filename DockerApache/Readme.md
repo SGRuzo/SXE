@@ -43,3 +43,22 @@
 ![4.1 BindMountDemostracion.png](img/4.1%20BindMountDemostracion.png)
 
 ---
+
+## 5) Realiza un 'hola mundo' en html y comprueba que accedes desde el navegador
+
+![5.HolaMundo.png](img/5.HolaMundo.png)
+
+* Creo un archivo `index.html` en el directorio (`/home/dam/Documents/5XE/dockerapache`) con contenido "¡Hola Mundo!"
+* Accedo a `http://localhost:8000` en el navegador y compruebo que se muestra el contenido del archivo HTML.
+
+---
+
+## 6) Crea otro contenedor 'dam_web2' con el mismo bind mount y a otro puerto
+
+![6.NuevoContenedor dam_web2.png](img/6.NuevoContenedor%20dam_web2.png)
+
+* `docker run -dit --name dam_web2 -p 9080:80 -v /home/dam/Documents/5XE/dockerapache:/usr/local/apache2/htdocs httpd:2.4`
+* Verifico con `docker ps` que el contenedor está ejecutándose con el mapeo de puertos `0.0.0.0:9080->80/tcp`
+![6.1.NuevoContenedorDemostracion.png](img/6.1.NuevoContenedorDemostracion.png)
+
+---
