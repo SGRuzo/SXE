@@ -1,0 +1,17 @@
+services:
+  owncloud:
+    image: owncloud/server:latest
+    container_name: owncloud_server
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      - OWNCLOUD_DOMAIN:localhost:8080
+      - OWNCLOUD_TRUSTED_DOMAINS=localhost
+      - OWNCLOUD_ADMIN_USERNAME:sxe_user
+      - OWNCLOUD_ADMIN_PASSWORD=admin_password
+
+
+#puedes comprobar la documentación acortar.link/sxe
+
+

@@ -1,0 +1,90 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql #Nivel 2
+    networks:
+      - prestashop_network
+    healthcheck: #Nivel 3
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  prestashop:
+    image: prestashop/prestashop:latest
+    container_name: prestashop
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy #Nivel 3
+      redis:  # añadir dependencia de Redis
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    environment:
+      DB_SERVER: ${DB_SERVER}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWD: ${DB_PASSWD}
+      PS_INSTALL_AUTO: ${PS_INSTALL_AUTO}
+      PS_DOMAIN: ${PS_DOMAIN}
+      PS_LANGUAGE: ${PS_LANGUAGE}
+      PS_COUNTRY: ${PS_COUNTRY}
+      ADMIN_MAIL: ${ADMIN_MAIL}
+      ADMIN_PASSWD: ${ADMIN_PASSWD}
+      # añadir estas 4 variables de entorno para Redis:
+      PS_REDIS_BACKEND: ${PS_REDIS_BACKEND}
+      PS_REDIS_SERVER: ${PS_REDIS_SERVER}
+      PS_REDIS_PORT: ${PS_REDIS_PORT}
+      PS_REDIS_DATABASE: ${PS_REDIS_DATABASE}
+    volumes:
+      - prestashop_data:/var/www/html #Nivel 2
+    networks:
+      - prestashop_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy #Nivel 3
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: ${PMA_HOST}
+      PMA_USER: ${PMA_USER}
+      PMA_PASSWORD: ${PMA_PASSWORD}
+    networks:
+      - prestashop_network
+
+  # añadir el servicio de Redis
+  redis:
+    image: redis:alpine
+    container_name: redis_cache
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - prestashop_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  db_data:
+  prestashop_data:
+
+networks:
+  prestashop_network:
