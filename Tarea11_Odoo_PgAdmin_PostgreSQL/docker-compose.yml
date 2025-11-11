@@ -47,6 +47,7 @@ volumes:
   odoo-data:
   pgadmin-data:
 
+
 networks:
   odoo-net:
     driver: bridge
