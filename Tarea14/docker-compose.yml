@@ -1,0 +1,41 @@
+services:
+
+  odoo:
+    image: odoo:18
+    container_name: T_14_odoo
+    ports:
+      - "8069:8069"
+    depends_on:
+      - db
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+      - ADMIN_PASSWORD=admin
+    volumes:
+      - odoo_volumen:/var/lib/odoo
+
+  db:
+    image: postgres:17
+    container_name: T_14_db
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_DB=postgres
+    volumes:
+      - db_volumen:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:7
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@local.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "8081:80"
+
+volumes:
+  odoo_volumen:
+  db_volumen:
