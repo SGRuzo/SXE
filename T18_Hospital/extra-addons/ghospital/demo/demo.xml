@@ -1,0 +1,130 @@
+<odoo>
+    <data>
+        <!-- Pacientes -->
+        <record id="paciente_1" model="ghospital.paciente">
+            <field name="name">Juan García Pérez</field>
+            <field name="sintomas">Dolor de cabeza y mareos</field>
+        </record>
+
+        <record id="paciente_2" model="ghospital.paciente">
+            <field name="name">María López Fernández</field>
+            <field name="sintomas">Tos y fiebre</field>
+        </record>
+
+        <record id="paciente_3" model="ghospital.paciente">
+            <field name="name">Carlos Martínez Ruiz</field>
+            <field name="sintomas">Dolor de estómago</field>
+        </record>
+
+        <record id="paciente_4" model="ghospital.paciente">
+            <field name="name">Ana Rodríguez Sánchez</field>
+            <field name="sintomas">Dolor de rodilla</field>
+        </record>
+
+        <record id="paciente_5" model="ghospital.paciente">
+            <field name="name">Pedro González Díaz</field>
+            <field name="sintomas">Cansancio y pérdida de peso</field>
+        </record>
+
+        <record id="paciente_6" model="ghospital.paciente">
+            <field name="name">Laura Sánchez Morales</field>
+            <field name="sintomas">Dolor de garganta</field>
+        </record>
+
+        <record id="paciente_7" model="ghospital.paciente">
+            <field name="name">Miguel Fernández Ruiz</field>
+            <field name="sintomas">Alérgia en la piel</field>
+        </record>
+
+        <!-- Médicos -->
+        <record id="medico_1" model="ghospital.medico">
+            <field name="name">Dr. Alberto Jiménez Castro</field>
+            <field name="numero_colegiado">28/28/12345</field>
+        </record>
+
+        <record id="medico_2" model="ghospital.medico">
+            <field name="name">Dra. Carmen Ruiz Moreno</field>
+            <field name="numero_colegiado">28/28/67890</field>
+        </record>
+
+        <record id="medico_3" model="ghospital.medico">
+            <field name="name">Dr. Francisco Navarro López</field>
+            <field name="numero_colegiado">28/28/54321</field>
+        </record>
+
+        <!-- Diagnósticos simples -->
+        <record id="diagnostico_1" model="ghospital.diagnostico">
+            <field name="id_paciente" ref="paciente_1"/>
+            <field name="id_medico" ref="medico_1"/>
+            <field name="diagnostico">Cefalea. Ibuprofeno 600mg cada 8 horas.</field>
+        </record>
+
+        <record id="diagnostico_2" model="ghospital.diagnostico">
+            <field name="id_paciente" ref="paciente_2"/>
+            <field name="id_medico" ref="medico_2"/>
+            <field name="diagnostico">Resfriado común. Paracetamol y reposo.</field>
+        </record>
+
+
+        <record id="diagnostico_3" model="ghospital.diagnostico">
+            <field name="id_paciente" ref="paciente_3"/>
+            <field name="id_medico" ref="medico_3"/>
+            <field name="diagnostico">Gastritis. Omeprazol 20mg en ayunas.</field>
+        </record>
+
+        <record id="diagnostico_4" model="ghospital.diagnostico">
+            <field name="id_paciente" ref="paciente_4"/>
+            <field name="id_medico" ref="medico_1"/>
+            <field name="diagnostico">Tendinitis. Antiinflamatorio y fisioterapia.</field>
+        </record>
+
+        <record id="diagnostico_5" model="ghospital.diagnostico">
+            <field name="id_paciente" ref="paciente_5"/>
+            <field name="id_medico" ref="medico_2"/>
+            <field name="diagnostico">Análisis de sangre. Pendiente de resultados.</field>
+        </record>
+
+        <record id="diagnostico_6" model="ghospital.diagnostico">
+            <field name="id_paciente" ref="paciente_6"/>
+            <field name="id_medico" ref="medico_3"/>
+            <field name="diagnostico">Faringitis. Antibiótico 7 días.</field>
+        </record>
+
+        <record id="diagnostico_7" model="ghospital.diagnostico">
+            <field name="id_paciente" ref="paciente_7"/>
+            <field name="id_medico" ref="medico_1"/>
+            <field name="diagnostico">Dermatitis alérgica. Crema de hidrocortisona.</field>
+        </record>
+
+        <!-- Algunos pacientes con múltiples visitas -->
+        <record id="diagnostico_8" model="ghospital.diagnostico">
+            <field name="id_paciente" ref="paciente_1"/>
+            <field name="id_medico" ref="medico_2"/>
+            <field name="diagnostico">Revisión. Mejoría del dolor de cabeza.</field>
+        </record>
+
+        <record id="diagnostico_9" model="ghospital.diagnostico">
+            <field name="id_paciente" ref="paciente_2"/>
+            <field name="id_medico" ref="medico_1"/>
+            <field name="diagnostico">Control. Resfriado resuelto, alta.</field>
+        </record>
+
+        <record id="diagnostico_10" model="ghospital.diagnostico">
+            <field name="id_paciente" ref="paciente_5"/>
+            <field name="id_medico" ref="medico_2"/>
+            <field name="diagnostico">Resultados normales. Aumentar ejercicio.</field>
+        </record>
+
+        <record id="diagnostico_11" model="ghospital.diagnostico">
+            <field name="id_paciente" ref="paciente_3"/>
+            <field name="id_medico" ref="medico_2"/>
+            <field name="diagnostico">Revisión gastritis. Continuar tratamiento 1 mes más.</field>
+        </record>
+
+        <record id="diagnostico_12" model="ghospital.diagnostico">
+            <field name="id_paciente" ref="paciente_4"/>
+            <field name="id_medico" ref="medico_3"/>
+            <field name="diagnostico">Rodilla mejor. Continuar fisioterapia.</field>
+        </record>
+    </data>
+</odoo>

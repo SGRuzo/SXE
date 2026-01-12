@@ -1,0 +1,155 @@
+<odoo>
+    <data>
+        <!-- Paciente -->
+        <record id="view_ghospital_paciente_form" model="ir.ui.view">
+            <field name="name">ghospital.paciente.form</field>
+            <field name="model">ghospital.paciente</field>
+            <field name="arch" type="xml">
+                <form string="Paciente">
+                    <sheet>
+                        <group>
+                            <field name="name" placeholder="Nombre del Paciente"/>
+                            <field name="sintomas"/>
+                        </group>
+                        <notebook>
+                            <page string="Historial Médico">
+                                <field name="id_diagnostico">
+                                    <list editable="bottom">
+                                        <field name="id_medico"/>
+                                        <field name="diagnostico"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_ghospital_paciente_list" model="ir.ui.view">
+            <field name="name">ghospital.paciente.list</field>
+            <field name="model">ghospital.paciente</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="sintomas"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_ghospital_paciente" model="ir.actions.act_window">
+            <field name="name">Pacientes</field>
+            <field name="res_model">ghospital.paciente</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Medicos -->
+        <record id="view_ghospital_medico_form" model="ir.ui.view">
+            <field name="name">ghospital.medico.form</field>
+            <field name="model">ghospital.medico</field>
+            <field name="arch" type="xml">
+                <form string="Médico">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Nombre del Médico"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="numero_colegiado"/>
+                        </group>
+                        <notebook>
+                            <page string="Pacientes Atendidos">
+                                <field name="id_diagnostico">
+                                    <list editable="bottom">
+                                        <field name="id_paciente"/>
+                                        <field name="diagnostico"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_ghospital_medico_list" model="ir.ui.view">
+            <field name="name">ghospital.medico.list</field>
+            <field name="model">ghospital.medico</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="numero_colegiado"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_ghospital_medico" model="ir.actions.act_window">
+            <field name="name">Médicos</field>
+            <field name="res_model">ghospital.medico</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- diagnostico -->
+        <record id="view_ghospital_diagnostico_form" model="ir.ui.view">
+            <field name="name">ghospital.diagnostico.form</field>
+            <field name="model">ghospital.diagnostico</field>
+            <field name="arch" type="xml">
+                <form string="Diagnóstico">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="id_paciente"/>
+                                <field name="id_medico"/>
+                            </group>
+                            <group>
+                                <field name="diagnostico"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_ghospital_diagnostico_list" model="ir.ui.view">
+            <field name="name">ghospital.diagnostico.list</field>
+            <field name="model">ghospital.diagnostico</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="id_paciente"/>
+                    <field name="id_medico"/>
+                    <field name="diagnostico"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_ghospital_diagnostico" model="ir.actions.act_window">
+            <field name="name">Diagnósticos</field>
+            <field name="res_model">ghospital.diagnostico</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem name="Gestión Hospital" id="menu_ghospital_root"/>
+
+        <menuitem name="Pacientes"
+                  id="menu_ghospital_paciente"
+                  parent="menu_ghospital_root"
+                  action="action_ghospital_paciente"
+                  sequence="10"/>
+
+        <menuitem name="Médicos"
+                  id="menu_hospital_medico"
+                  parent="menu_ghospital_root"
+                  action="action_ghospital_medico"
+                  sequence="20"/>
+
+        <menuitem name="Diagnósticos"
+                  id="menu_ghospital_diagnostico"
+                  parent="menu_ghospital_root"
+                  action="action_ghospital_diagnostico"
+                  sequence="30"/>
+        <!-- Top menu item -->
+
+
+    </data>
+</odoo>
